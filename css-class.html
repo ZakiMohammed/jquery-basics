@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Classes with JQuery</title>
+
+    <style>
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .text-size {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Classes with JQuery</h1>
+
+    <button id="left">Left</button>
+    <button id="center">Center</button>
+    <button id="right">Right</button>
+    <button id="justify">Justified</button>
+    <button id="toggle">Size</button>
+    <button id="color">Color</button>
+    <button id="undo">Undo</button>
+
+    <p class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore soluta eius hic laudantium rem repudiandae quas
+        ex beatae a, officia corrupti perspiciatis modi aliquid quo. Inventore porro obcaecati accusamus! Quae corrupti
+        corporis reiciendis doloribus ut nam illo dignissimos, quam est. Earum velit tempore natus doloribus mollitia
+        blanditiis facere nemo quisquam! Veniam placeat sapiente quo voluptatum possimus esse, qui eum quas doloribus,
+        culpa repellendus consequatur fugit ut dolore cupiditate quae eos eligendi voluptates aut minus soluta deleniti
+        vitae! Maiores illum rerum, ipsum incidunt ducimus ad atque perspiciatis sint beatae eligendi placeat
+        exercitationem quo accusantium fugiat eos dolore qui perferendis dolor recusandae voluptas maxime quibusdam,
+        sunt officiis minima! Rerum ducimus quam dolores veritatis sapiente repellat dolore unde aut, veniam illo, eum
+        harum doloribus dolor dolorum nam delectus laborum provident ratione reprehenderit corrupti. Animi eveniet
+        dolorem vero, voluptate distinctio suscipit, error iure hic, est aliquam eligendi asperiores temporibus. Neque
+        doloribus pariatur sit blanditiis repudiandae odit? Eius provident fuga consequatur aut atque, quo perspiciatis
+        tempora fugit inventore, excepturi modi, necessitatibus ea distinctio odio eos! Vitae dolorem tenetur, odio
+        porro nulla adipisci error modi impedit, voluptatum minus mollitia numquam? Corporis ipsum mollitia est. Aperiam
+        enim eveniet placeat obcaecati, assumenda autem consequatur quasi et, repudiandae itaque ullam, a dicta
+        blanditiis maiores cumque rerum fugit suscipit totam architecto. Sapiente rem voluptas facere dolor, minus sequi
+        hic dignissimos quam corrupti deserunt, delectus voluptates culpa laborum iusto velit! Illo enim sit aliquam
+        aspernatur nisi. Nostrum obcaecati sint recusandae voluptates! Ea ratione laborum ducimus quasi omnis illum
+        iusto beatae officia? Excepturi hic aperiam ducimus id. Omnis ab debitis numquam nostrum temporibus amet tenetur
+        fugit enim sit alias natus impedit, repellendus ipsam magnam officiis ad maxime. Dolore, officia. Laboriosam,
+        quaerat explicabo? Veniam numquam quasi, cupiditate ex perspiciatis porro iste animi officia error nulla
+        expedita velit harum recusandae dolorum nostrum quae cum.</p>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // write your jquery here
+
+            $('#left').on('click', function () {
+                $('p').removeClass();
+                $('p').addClass('text-left');
+            })
+            $('#center').on('click', function () {
+                $('p').removeClass();
+                $('p').addClass('text-center');
+            })
+            $('#right').on('click', function () {
+                $('p').removeClass();
+                $('p').addClass('text-right');
+            })
+            $('#justify').on('click', function () {
+                $('p').removeClass();
+                $('p').addClass('text-justify');
+            })
+            $('#toggle').on('click', function () {
+                $('p').toggleClass('text-size');
+            })
+            $('#color').on('click', function () {
+                $('p').css({
+                    'color': '#e84393',
+                    'font-weight': 'bold'
+                });
+            })
+            $('#undo').on('click', function () {
+                $('p').removeAttr('style');
+            })
+        })
+    </script>
+</body>
+
+</html>

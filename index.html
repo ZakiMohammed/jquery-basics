@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Basics</title>
+
+    <style>
+        .error {
+            color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hello <span id="message"></span></h1>
+
+    <input type="text" id="txtMessage">
+    <button id="update">Update Message</button>
+    <small class="error" style="display: none;">Please enter message</small>
+
+    <br>
+    <br>
+
+    <div>
+        <a id="link" href="https://www.google.com/" target="_blank">Google</a>
+        <button id="toggleLink">Toggle Link</button>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">This is card</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, officiis?</p>
+            <button id="toggle">Toggle Image</button>
+            <div class="card-img"></div>
+        </div>
+    </div>
+
+    <div>
+        <input type="text" id="item">
+        <button id="append">Append</button>
+        <button id="prepend">Prepend</button>
+        <button id="after">After</button>
+        <button id="before">Before</button>
+        <button id="empty">Empty</button>
+        <button id="remove">Remove</button>
+    </div>
+    <ul>
+        <li>Apple</li>
+        <li>Fan</li>
+        <li>Bag</li>
+    </ul>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // document.getElementById('message').innerText = 'Atif';
+            $('#message').text('Atif');
+            $('p').text('Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quo, tempora eveniet incidunt deleniti doloribus, et modi nesciunt libero aperiam, alias magni iure totam! Optio, libero voluptatem repudiandae nesciunt qui distinctio veritatis autem voluptatibus asperiores pariatur reprehenderit iure modi nisi dolores ullam ducimus vel fugiat cumque eius omnis sapiente. Velit.');
+            $('.card .card-body .card-img').html(`<img src="https://picsum.photos/200/200" />`)
+
+            $('#update').on('click', function () {
+                const message = $('#txtMessage').val();
+
+                if (message) {
+                    $('#message').text(message);
+                    $('.error').slideUp(1000);
+                } else {
+                    $('.error').slideDown(1000);
+                }
+            });
+
+            $('#toggle').on('click', function () {
+                $('.card .card-body .card-img').toggle();
+            })
+
+            $('#toggleLink').on('click', function () {
+                const linkName = $('#link').text();
+                if (linkName === 'Google') {
+                    $('#link').text('Microsoft')
+                    $('#link').attr('href', 'https://www.microsoft.com/');
+                    // https://www.microsoft.com/
+                } else {
+                    $('#link').text('Google')
+                    $('#link').attr('href', 'https://www.google.com/');
+                }
+            })
+
+            $('#append').on('click', function () {
+                const item = $('#item').val();
+
+                if (item) {
+                    $('ul').append(`<li>${item}</li>`);
+                } else {
+                    alert('Please enter item');
+                }
+            })
+            $('#prepend').on('click', function () {
+                const item = $('#item').val();
+
+                if (item) {
+                    $('ul').prepend(`<li>${item}</li>`);
+                } else {
+                    alert('Please enter item');
+                }
+            })
+            $('#after').on('click', function () {
+                const item = $('#item').val();
+
+                if (item) {
+                    $('ul').after(`${item}`);
+                } else {
+                    alert('Please enter item');
+                }
+            })
+            $('#before').on('click', function () {
+                const item = $('#item').val();
+
+                if (item) {
+                    $('ul').before(`${item}`);
+                } else {
+                    alert('Please enter item');
+                }
+            })
+            $('#empty').on('click', function () {
+                $('ul').empty();
+            })
+            $('#remove').on('click', function () {
+                $('ul').remove();
+            })
+        })
+
+        // $(function () {
+        //     $('#message').text('Atif');
+        // })
+    </script>
+</body>
+
+</html>
